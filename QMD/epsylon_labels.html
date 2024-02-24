@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="kd">
+
+<title>epsylon_dictionnaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Intégration données d'enquête</li><li class="breadcrumb-item"><a href="../QMD/epsylon_labels.html">Nomenclatures</a></li><li class="breadcrumb-item"><a href="../QMD/epsylon_labels.html">epsylon_dictionnaries</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../img/Logo_Blanc-01.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../QMD/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPSYLON dataprocessing routines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Intégration données d’enquête</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Functions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../QMD/Import M0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPSYLON study results DL and processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../QMD/db_preprocessing_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">db_files_processinf</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../QMD/weekly_new_entrances.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">weekly new entrances</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../QMD/M3_to_M9_meeting_progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">M0 to M9 meeting progress</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Nomenclatures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../QMD/epsylon_labels.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">epsylon_dictionnaries</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Dashboards</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../QMD/Epsylon dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dashboard inclusions EPSYLON</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#liste-des-dictionnaires-des-bases-epsylon" id="toc-liste-des-dictionnaires-des-bases-epsylon" class="nav-link active" data-scroll-target="#liste-des-dictionnaires-des-bases-epsylon"><span class="header-section-number">1</span> Liste des dictionnaires des bases EPSYLON</a>
+  <ul class="collapse">
+  <li><a href="#binary-variables" id="toc-binary-variables" class="nav-link" data-scroll-target="#binary-variables"><span class="header-section-number">1.1</span> Binary variables</a></li>
+  </ul></li>
+  <li><a href="#categorical-variables" id="toc-categorical-variables" class="nav-link" data-scroll-target="#categorical-variables"><span class="header-section-number">2</span> Categorical variables</a>
+  <ul class="collapse">
+  <li><a href="#consentement" id="toc-consentement" class="nav-link" data-scroll-target="#consentement"><span class="header-section-number">2.1</span> Consentement</a></li>
+  <li><a href="#sd" id="toc-sd" class="nav-link" data-scroll-target="#sd"><span class="header-section-number">2.2</span> SD</a></li>
+  <li><a href="#pss-10" id="toc-pss-10" class="nav-link" data-scroll-target="#pss-10"><span class="header-section-number">2.3</span> PSS-10</a></li>
+  <li><a href="#asrs" id="toc-asrs" class="nav-link" data-scroll-target="#asrs"><span class="header-section-number">2.4</span> ASRS</a></li>
+  <li><a href="#mini" id="toc-mini" class="nav-link" data-scroll-target="#mini"><span class="header-section-number">2.5</span> MINI</a></li>
+  <li><a href="#cloture-m0" id="toc-cloture-m0" class="nav-link" data-scroll-target="#cloture-m0"><span class="header-section-number">2.6</span> Cloture M0</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Intégration données d'enquête</li><li class="breadcrumb-item"><a href="../QMD/epsylon_labels.html">Nomenclatures</a></li><li class="breadcrumb-item"><a href="../QMD/epsylon_labels.html">epsylon_dictionnaries</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">epsylon_dictionnaries</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>kd </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="liste-des-dictionnaires-des-bases-epsylon" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="liste-des-dictionnaires-des-bases-epsylon"><span class="header-section-number">1</span> Liste des dictionnaires des bases EPSYLON</h2>
+<p>Ce script regroupe l’ensembles des dictionnaires des bases M0, M3 et M9 pour ajout des labels sur table finalisée</p>
+<section id="binary-variables" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="binary-variables"><span class="header-section-number">1.1</span> Binary variables</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dicho_answ <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Oui"</span>, <span class="st">"99"</span> <span class="ot">=</span> <span class="st">"Ne sait pas"</span>, <span class="st">"999"</span> <span class="ot">=</span> <span class="st">"Incertain"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>list_var_dicho <span class="ot">=</span> <span class="fu">list</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#SD</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"sd_301a"</span>,<span class="st">"sd_404"</span>,<span class="st">"sd_507"</span>,<span class="st">"sd_508"</span>,<span class="st">"sd_602"</span>,<span class="st">"sd_603"</span>,<span class="st">"sd_604"</span>,<span class="st">"sd_607"</span>,<span class="st">"sd_703"</span>,<span class="st">"sd_704"</span>,<span class="st">"sd_705b"</span>,<span class="st">"sd_708"</span>,<span class="st">"sd_709"</span>,<span class="st">"sd_709a"</span>,<span class="st">"sd_710"</span>,<span class="st">"sd_711"</span>,<span class="st">"sd_712"</span>,<span class="st">"sd_714"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#LEC</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"lec5_1.5"</span>,<span class="st">"lec5_2.0"</span>,<span class="st">"lec5_2.1"</span>,<span class="st">"lec5_3.0"</span>,<span class="st">"lec5_3.1"</span>,<span class="st">"lec5_3.2"</span>,<span class="st">"lec5_4.0"</span>,<span class="st">"lec5_4.1"</span>,<span class="st">"lec5_5.2"</span>,<span class="st">"lec5_5.3"</span>,<span class="st">"lec5_5.0"</span>,<span class="st">"lec5_6.0"</span>,<span class="st">"lec5_6.1"</span>,<span class="st">"lec5_6.2"</span>,<span class="st">"lec5_7.0"</span>,<span class="st">"lec5_8.0"</span>,<span class="st">"lec5_8.2"</span>,<span class="st">"lec5_9.0"</span>,<span class="st">"lec5_7.1"</span>,<span class="st">"lec5_7.2"</span>,<span class="st">"lec5_2.5"</span>,<span class="st">"lec5_3.5"</span>,<span class="st">"lec5_4.5"</span>,<span class="st">"lec5_5.5"</span>,<span class="st">"lec5_6.5"</span>,<span class="st">"lec5_7.5"</span>,<span class="st">"lec5_8.5"</span>,<span class="st">"lec5_10.2"</span>,<span class="st">"lec5_11.2"</span>,<span class="st">"lec5_9.5"</span>,<span class="st">"lec5_10.1"</span>,<span class="st">"lec5_12.0"</span>,<span class="st">"lec5_10.5"</span>,<span class="st">"lec5_11.5"</span>,<span class="st">"lec5_12.1"</span>,<span class="st">"lec5_12.2"</span>,<span class="st">"lec5_13.0"</span>,<span class="st">"lec5_13.1"</span>,<span class="st">"lec5_12.5"</span>,<span class="st">"lec5_13.2"</span>,<span class="st">"lec5_14.2"</span>,<span class="st">"lec5_13.5"</span>,<span class="st">"lec5_14.1"</span>,<span class="st">"lec5_14.5"</span>,<span class="st">"lec5_15.2"</span>,<span class="st">"lec5_15.5"</span>,<span class="st">"lec5_16.0"</span>,<span class="st">"lec5_16.1"</span>,<span class="st">"lec5_16.2"</span>,<span class="st">"lec5_16.5"</span>,<span class="st">"lec5_17.0"</span>,<span class="st">"lec5_17.5"</span>,<span class="st">"lec5_1.0"</span>,<span class="st">"lec5_1_child"</span>,<span class="st">"lec5_1.1"</span>,<span class="st">"lec5_2.2"</span>,<span class="st">"lec5_2_child"</span>,<span class="st">"lec5_3_child"</span>,<span class="st">"lec5_4_child"</span>,<span class="st">"lec5_5_child"</span>,<span class="st">"lec5_6_child"</span>,<span class="st">"lec5_10_child"</span>,<span class="st">"lec5_7_child"</span>,<span class="st">"lec5_8_child"</span>,<span class="st">"lec5_9_child"</span>,<span class="st">"lec5_12_child"</span>,<span class="st">"lec5_11_child"</span>,<span class="st">"lec5_13_child"</span>,<span class="st">"lec5_17_child"</span>,<span class="st">"lec5_14_child"</span>,<span class="st">"lec5_16_child"</span>,<span class="st">"lec5_15_child"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># MINI A</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"a1a"</span>,<span class="st">"a1b"</span>,<span class="st">"a2a"</span>,<span class="st">"a2b"</span>,<span class="st">"a3a_actual"</span>,<span class="st">"a3b_actual"</span>,<span class="st">"a3c_actual"</span>,<span class="st">"a3d_actual"</span>,<span class="st">"a3e_actual"</span>,<span class="st">"a3e1_actual"</span>,<span class="st">"a3f_actual"</span>,<span class="st">"a3g_actual"</span>,<span class="st">"a4_actual"</span>,<span class="st">"a3a_past"</span>,<span class="st">"a3b_past"</span>,<span class="st">"a3c_past"</span>,<span class="st">"a3d_past"</span>,<span class="st">"a3e_past"</span>,<span class="st">"a3e1_past"</span>,<span class="st">"a3f_past"</span>,<span class="st">"a3g_past"</span>,<span class="st">"a4_past"</span>,<span class="st">"a5_past"</span>, <span class="st">"moda_drug_causes_actual"</span>, <span class="st">"moda_disease_causes_actual"</span>, <span class="st">"moda_drug_causes_past"</span>, <span class="st">"moda_disease_causes_past"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># MINI B</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"b1"</span>,<span class="st">"b1a"</span>,<span class="st">"b1b"</span>,<span class="st">"b2"</span>,<span class="st">"b3"</span>,<span class="st">"b4"</span>,<span class="st">"b4a"</span>,<span class="st">"b4b"</span>,<span class="st">"b5"</span>,<span class="st">"b6"</span>,<span class="st">"b7"</span>,<span class="st">"b8"</span>,<span class="st">"b9"</span>,<span class="st">"b10"</span>,<span class="st">"b10a"</span>,<span class="st">"b10b"</span>,<span class="st">"b11"</span>,<span class="st">"b11a"</span>,<span class="st">"b11b"</span>,<span class="st">"b12"</span>,<span class="st">"b12a"</span>,<span class="st">"b12b"</span>,<span class="st">"b12c"</span>,<span class="st">"b12d"</span>,<span class="st">"b13"</span>,<span class="st">"b14"</span>,<span class="st">"b14a"</span>,<span class="st">"b14b"</span>,<span class="st">"b14c"</span>,<span class="st">"b15"</span>,<span class="st">"b16"</span>,<span class="st">"b16a"</span>,<span class="st">"b16b"</span>,<span class="st">"b16c"</span>,<span class="st">"b18"</span>,<span class="st">"b18b1"</span>,<span class="st">"b18b2"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># MINI C</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"c0"</span>,<span class="st">"c1a"</span>,<span class="st">"c1b"</span>,<span class="st">"c2a"</span>,<span class="st">"c2b"</span>,<span class="st">"c3a_actual"</span>,<span class="st">"c3a1_actual"</span>,<span class="st">"c3b_actual"</span>,<span class="st">"c3c_actual"</span>,<span class="st">"c3d_actual"</span>,<span class="st">"c3e_actual"</span>,<span class="st">"c3f_actual"</span>,<span class="st">"c3g_actual"</span>,<span class="st">"c5_actual"</span>,<span class="st">"c6_actual"</span>,<span class="st">"c7_actual"</span>,<span class="st">"c3a_past"</span>,<span class="st">"c3a1_past"</span>,<span class="st">"c3b_past"</span>,<span class="st">"c3c_past"</span>,<span class="st">"c3d_past"</span>,<span class="st">"c3e_past"</span>,<span class="st">"c3f_past"</span>,<span class="st">"c3g_past"</span>,<span class="st">"c5_past"</span>,<span class="st">"c6_past"</span>,<span class="st">"c7_past"</span>,<span class="st">"c8a_past"</span>,<span class="st">"c8b_past"</span>,<span class="st">"c8c_past"</span>,<span class="st">"c8a_actual"</span>,<span class="st">"c8b_actual"</span>,<span class="st">"c8c_actual"</span>, <span class="st">"modc_drug_causes_actual"</span>, <span class="st">"modc_disease_causes_actual"</span>, <span class="st">"modc_drug_causes_past"</span>, <span class="st">"modc_disease_causes_past"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">#MINI D</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"d1a"</span>,<span class="st">"d1b"</span>,<span class="st">"d2"</span>,<span class="st">"d3"</span>,<span class="st">"d4a"</span>,<span class="st">"d4b"</span>,<span class="st">"d4c"</span>,<span class="st">"d4d"</span>,<span class="st">"d4e"</span>,<span class="st">"d4f"</span>,<span class="st">"d4g"</span>,<span class="st">"d4h"</span>,<span class="st">"d4i"</span>,<span class="st">"d4j"</span>,<span class="st">"d4k"</span>,<span class="st">"d4l"</span>,<span class="st">"d4m"</span>,<span class="st">"d6"</span>, <span class="st">"modd_drug_causes_actual"</span>, <span class="st">"modd_disease_causes_actual"</span>, <span class="st">"modd_drug_causes_past"</span>, <span class="st">"modd_disease_causes_past"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">#MINI F</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"f1"</span>,<span class="st">"f2"</span>,<span class="st">"f3"</span>,<span class="st">"f4"</span>,<span class="st">"f5"</span>,<span class="st">"f6"</span>,<span class="st">"public_tas"</span>, <span class="st">"modf_drug_causes_past"</span>, <span class="st">"modf_disease_causes_past"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">#MINI G</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">"g1a"</span>, <span class="st">"g1b"</span>, <span class="st">"g2"</span>, <span class="st">"g3a"</span>, <span class="st">"g3b"</span>, <span class="st">"g4"</span>, <span class="st">"tic_related"</span>,<span class="st">"modg_drug_causes_actual"</span>, <span class="st">"modg_disease_causes_actual"</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="categorical-variables" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="categorical-variables"><span class="header-section-number">2</span> Categorical variables</h2>
+<section id="consentement" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="consentement"><span class="header-section-number">2.1</span> Consentement</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Formulaire de consentement</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>consent <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Accord"</span>, <span class="st">"0"</span> <span class="ot">=</span><span class="st">"Refus"</span>, <span class="st">"99"</span> <span class="ot">=</span><span class="st">"Impossibilité"</span>,<span class="st">"97"</span> <span class="ot">=</span> <span class="st">"Hors délai"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>consent_impossible <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Transfert"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Libération anticipée"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Non maitrise de la langue"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Trouble cognitif"</span>, <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Trouble psychiatrique"</span>, <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Hors périmètre"</span>, <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Hospitalisation"</span>, <span class="st">"99"</span> <span class="ot">=</span> <span class="st">"Autre"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>etab <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span><span class="st">"CP LILLE ANNOEULLIN"</span>, <span class="st">"2"</span> <span class="ot">=</span><span class="st">"CP LILLE LOOS SEQUEDIN"</span>, <span class="st">"3"</span> <span class="ot">=</span><span class="st">"CP TOULOUSE SEYSSES"</span>, <span class="st">"4"</span> <span class="ot">=</span><span class="st">"MA MONTAUBAN"</span>, <span class="st">"5"</span> <span class="ot">=</span><span class="st">"MA FLEURY MEROGIS"</span>, <span class="st">"6"</span> <span class="ot">=</span><span class="st">"MA VERSAILLES"</span>, <span class="st">"7"</span> <span class="ot">=</span><span class="st">"MA STRASBOURG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sd" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="sd"><span class="header-section-number">2.2</span> SD</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SD</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sd_103 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span><span class="st">"Marié(e)"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"Pacsé(e)"</span>,<span class="st">"3"</span><span class="ot">=</span><span class="st">"En concubinage ou union libre"</span>,<span class="st">"4"</span><span class="ot">=</span><span class="st">"Veuf, veuve"</span>,<span class="st">"5"</span><span class="ot">=</span><span class="st">"Divorcé(e) ou en instance de divorce"</span>,<span class="st">"6"</span><span class="ot">=</span><span class="st">"Célibataire"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sd_208 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span><span class="st">"Seul(e)"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"Avec votre conjoint(e) uniquement"</span>,<span class="st">"3"</span><span class="ot">=</span><span class="st">"Avec votre conjoint(e) et un ou plusieurs enfants"</span>,<span class="st">"4"</span><span class="ot">=</span><span class="st">"Avec votre ou vos enfants uniquement"</span>,<span class="st">"5"</span><span class="ot">=</span><span class="st">"Avec d'autres personnes (amis, famille élargie, etc.)"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sd_209 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span><span class="st">"Dans un logement personnel comme locataire"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"Dans un logement personnel comme proprietaire"</span>,<span class="st">"3"</span><span class="ot">=</span><span class="st">"En hébergement chez un tiers (famille, proches)"</span>,<span class="st">"4"</span><span class="ot">=</span><span class="st">"En hébergement en institution"</span>,<span class="st">"5"</span><span class="ot">=</span><span class="st">"Sans domicile fixe"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>sd_300 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Vous n'êtes jamais allé(e) l'école ou vous l'avez quittée avant la fin du primaire"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Aucun diplôme et scolarité interrompue avant la fin du primaire ou avant la fin du collège"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Aucun diplôme et scolarité jusqu'à la fin du collège ou au-delà"</span>,<span class="st">"11"</span><span class="ot">=</span> <span class="st">"CEP (certificat d'études primaires)"</span>,<span class="st">"12"</span><span class="ot">=</span> <span class="st">"BEPC, brevet élémentaire, brevet des collèges, DNB"</span>,<span class="st">"13"</span><span class="ot">=</span> <span class="st">"CAP, BEP ou diplôme de niveau équivalent"</span>,<span class="st">"14"</span><span class="ot">=</span> <span class="st">"Baccalauréat général ou technologique, brevet supérieur, capacité en droit, DAEU, ESEU"</span>,<span class="st">"15"</span><span class="ot">=</span> <span class="st">"Baccalauréat professionnel, brevet professionnel, de technicien ou d'enseignement, diplôme équivalent"</span>,<span class="st">"16"</span><span class="ot">=</span> <span class="st">"BTS, DUT, Deug, Deust, diplôme de la santé ou du social de niveau bac+2, diplôme équivalent"</span>,<span class="st">"17"</span><span class="ot">=</span> <span class="st">"Licence, licence pro, maîtrise, diplôme équivalent de niveau bac+3 ou bac+4"</span>,<span class="st">"18"</span><span class="ot">=</span> <span class="st">"Master, DEA, DESS, diplôme grande école niveau bac+5, doctorat de santé"</span>,<span class="st">"19"</span><span class="ot">=</span> <span class="st">"Doctorat de recherche (hors santé)"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sd_301 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Emploi (salarié ou  votre compte, y compris aide d'une personne dans son travail)"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Apprentissage sous contrat ou stage rémunéré"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Etudes (élève, étudiant) ou stage non rémunéré"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Chômage (inscrit ou non au pôle emploi)"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Retraite ou préretraite (ancien salarié ou ancien indépendant)"</span>,<span class="st">"6"</span><span class="ot">=</span> <span class="st">"Femme ou homme au foyer"</span>,<span class="st">"7"</span><span class="ot">=</span> <span class="st">"Autre situation"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>sd_302 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Agriculteurs exploitants / Agricultrices exploitantes"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Artisans / Artisanes, commerçants / commerçantes et chefs / cheffes d'entreprise"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Cadres et professions intellectuelles supérieures"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Professions intermédiaires"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Employés / Employées"</span>,<span class="st">"6"</span><span class="ot">=</span> <span class="st">"Ouvriers / Ouvrières"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>sd_303 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Indépendant, employeur"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Intérimaire"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Aide familial"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Apprentis, stagiaire, contrat aidé"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Emploi à durée déterminée"</span>,<span class="st">"6"</span><span class="ot">=</span> <span class="st">"Emploi à durée indéterminée / titulaire de la fonction publique"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>sd_402 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, une sauvegarde de justice"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Oui, une tutelle"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Oui, une curatelle"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Oui, une curatelle renforcée"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>sd_403 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"RSA"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"AAH"</span>,<span class="st">"3"</span><span class="ot">=</span><span class="st">"Autre(s) aide(s) de la CAF ou du département"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>sd_405 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, en partie"</span>,<span class="st">"3"</span><span class="ot">=</span><span class="st">"Oui, totalement"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>sd_501 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>) </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>sd_502 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>) </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>sd_503 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>) </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>sd_504 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>) </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>sd_505 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>) </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>sd_506 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>) </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>sd_507 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>) </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>sd_508 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"A l'étranger"</span>,<span class="st">"99"</span><span class="ot">=</span><span class="st">"Ne sait pas"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>sd_501a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France hexagonale"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"En Outre-mer"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>sd_502a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France hexagonale"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"En Outre-mer"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>sd_503a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France hexagonale"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"En Outre-mer"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>sd_504a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France hexagonale"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"En Outre-mer"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>sd_505a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France hexagonale"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"En Outre-mer"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>sd_506a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"En France hexagonale"</span>,<span class="st">"2"</span><span class="ot">=</span><span class="st">"En Outre-mer"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>sd_600 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, assistance éducative au domicile de votre famille"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Oui, placement chez un membre de votre famille"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Oui, placement en famille d’accueil"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Oui, placement en foyer"</span>,<span class="st">"6"</span><span class="ot">=</span> <span class="st">"Oui, placement en institut médico-éducatif (IME)"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>sd_601 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, mesure éducative"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Oui, sanction éducative"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Oui, placement en centre éducatif fermé / renforcé"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Oui, travail d’intérêt général"</span>,<span class="st">"6"</span><span class="ot">=</span> <span class="st">"Oui, incarcération (quartier mineur, établissement pour mineurs)"</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>sd_603a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Vol et recel"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Infractions à la législation sur les stupéfiants"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Violences volontaires (Hors violences conjugales)"</span>,<span class="st">"9"</span><span class="ot">=</span> <span class="st">"Violences conjugales"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Viols, agressions sexuelles, atteintes sexuelles"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Infractions routières (hors homicide et blessure involontaire)"</span>,<span class="st">"6"</span><span class="ot">=</span> <span class="st">"Homicide et atteinte volontaire ayant entraîné la mort"</span>,<span class="st">"7"</span><span class="ot">=</span> <span class="st">"Evasion, non respect des conditions d'une précédente condamnation, ou de conditions de libération/aménagement"</span>,<span class="st">"8"</span><span class="ot">=</span> <span class="st">"Détention, fabrication, ou vente de faux documents administratifs"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait pas"</span>,<span class="st">"98"</span><span class="ot">=</span> <span class="st">"Autre, précisez en toutes lettres :"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>sd_604a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span><span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Oui, je dors sur un matelas"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, un(e) de mes codétenu(e)s"</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>sd_606 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, mon père"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Oui, ma mère"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Oui, un ou plusieurs de mes grands parents"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Oui, un de mes frères ou soeurs"</span>,<span class="st">"6"</span><span class="ot">=</span> <span class="st">"Oui, d'autres membre de ma famille"</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>sd_701a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"N'a pas bougé"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"S'est dégradé"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"S'est amélioré"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Ne sait pas"</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>sd_702a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"N'a pas bougé"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"S'est dégradé"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"S'est amélioré"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Ne sait pas"</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>sd_705 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Psychiatre"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Addictologue"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Psychologue"</span>,<span class="st">"0"</span><span class="ot">=</span> <span class="st">"Aucun suivi"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait pas"</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>sd_705c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Uniquement pendant une détention précédente"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Uniquement hors détention"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Les deux"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait plus"</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>sd_706 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Consultation libérale"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Consultation en centre médico-psychologique"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Consultation dans un centre de soins en addictologie"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Consultation en milieu carcéral lors d’une incarcération précédente"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Autre"</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>sd_710a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"A ma demande (soin libre)"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Sans mon consentement (soins à la demande d'un tiers, soins en péril imminent, soins sur décision du représentant de l'Etat - Ancien HO)"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait plus"</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>sd_710a1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Uniquement pendant une détention précédente"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Uniquement hors détention"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Les deux"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait plus"</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>sd_710a2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Uniquement pendant une détention précédente"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Uniquement hors détention"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Les deux"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait plus"</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>sd_710a3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Uniquement pendant une détention précédente"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Uniquement hors détention"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Les deux"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait plus"</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>sd_712 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Oui, pour une peine de détention"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, pour un suivi en milieu ouvert"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Les deux"</span>,<span class="st">"99"</span><span class="ot">=</span> <span class="st">"Ne sait plus"</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>sd_715 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span><span class="ot">=</span> <span class="st">"Non"</span>,<span class="st">"2"</span><span class="ot">=</span> <span class="st">"Oui, un ou des codétenus"</span>,<span class="st">"3"</span><span class="ot">=</span> <span class="st">"Oui, des médecins ou personnels médicaux"</span>,<span class="st">"4"</span><span class="ot">=</span> <span class="st">"Oui, des personnels pénitentiaires"</span>,<span class="st">"5"</span><span class="ot">=</span> <span class="st">"Oui, autre"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pss-10" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="pss-10"><span class="header-section-number">2.3</span> PSS-10</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pss_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pss_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pss_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>pss_4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pss_5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pss_6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>pss_7 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>pss_8 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>pss_9 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>pss_10 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>pss_11 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>pss_12 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>pss_13 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>pss_14 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Presque jamais"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Assez souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>pss_incarc_impact <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Est responsable de leur apparition"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Les a diminué"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Les a aggravé"</span> , <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"N'a rien changé aux symptomes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="asrs" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="asrs"><span class="header-section-number">2.4</span> ASRS</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>asrs_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rarement"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>asrs_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rarement"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>asrs_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rarement"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>asrs_4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rarement"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>asrs_5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rarement"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>asrs_6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Jamais"</span> , <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rarement"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Parfois"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Souvent"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>asrs_incarc_impact <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Est responsable de leur apparition"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Les a diminué"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Les a aggravé"</span> , <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"N'a rien changé aux symptomes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mini" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="mini"><span class="header-section-number">2.5</span> MINI</h3>
+<section id="module-a" class="level4" data-number="2.5.1">
+<h4 data-number="2.5.1" class="anchored" data-anchor-id="module-a"><span class="header-section-number">2.5.1</span> Module A</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>moda_incarc_impact <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Est responsable de leur apparition"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Les a diminué"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Les a aggravé"</span> , <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"N'a rien changé aux symptomes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="module-b" class="level4" data-number="2.5.2">
+<h4 data-number="2.5.2" class="anchored" data-anchor-id="module-b"><span class="header-section-number">2.5.2</span> Module B</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>b3a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Occasionnellement"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Souvent"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Très souvent"</span>) </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b3b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Légère"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Modérée"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Sévère"</span>) </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>b18b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Actuel : au cours des 12 derniers mois"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"En rémission précoce : 12 à 24 mois auparavant"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"En rémission : &gt; 24 mois"</span>) </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>b16d <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B16d1"</span> <span class="ot">=</span> <span class="st">"Espériez-vous être secouru(e)/survivre ?"</span> , <span class="st">"B16d2"</span> <span class="ot">=</span> <span class="st">"Vous attendiez vous à mourir ou aviez-vous l’intention de mourir ?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="module-c" class="level4" data-number="2.5.3">
+<h4 data-number="2.5.3" class="anchored" data-anchor-id="module-c"><span class="header-section-number">2.5.3</span> Module C</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>c4_actual <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C4a"</span> <span class="ot">=</span> <span class="st">"3 jours ou moins"</span>, <span class="st">"C4b"</span> <span class="ot">=</span> <span class="st">"4 jours ou plus"</span>, <span class="st">"C4c"</span> <span class="ot">=</span> <span class="st">"7 jours ou plus"</span>) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>c4_past <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C4a"</span> <span class="ot">=</span> <span class="st">"3 jours ou moins"</span>, <span class="st">"C4b"</span> <span class="ot">=</span> <span class="st">"4 jours ou plus"</span>, <span class="st">"C4c"</span> <span class="ot">=</span> <span class="st">"7 jours ou plus"</span>) </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>modc_incarc_impact <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Est responsable de leur apparition"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Les a diminué"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Les a aggravé"</span>, <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"N'a rien changé aux symptomes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="module-d" class="level4" data-number="2.5.4">
+<h4 data-number="2.5.4" class="anchored" data-anchor-id="module-d"><span class="header-section-number">2.5.4</span> Module D</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>modd_incarc_impact <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Est responsable de leur apparition"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Les a diminué"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Les a aggravé"</span>, <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"N'a rien changé aux symptomes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="module-f" class="level4" data-number="2.5.5">
+<h4 data-number="2.5.5" class="anchored" data-anchor-id="module-f"><span class="header-section-number">2.5.5</span> Module F</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>modf_incarc_impact <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Est responsable de leur apparition"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Les a diminué"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Les a aggravé"</span>, <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"N'a rien changé aux symptomes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Module G </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>insight <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Bon ou juste"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Médiocre"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Absent"</span>, <span class="st">"4"</span><span class="ot">=</span><span class="st">"Trouble délirant"</span>) </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>modg_incarc_impact <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Est responsable de leur apparition"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Les a diminué"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Les a aggravé"</span>, <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"N'a rien changé aux symptomes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="cloture-m0" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="cloture-m0"><span class="header-section-number">2.6</span> Cloture M0</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lieu_enq <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Quartier arrivant"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Batiment"</span>) </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>m0_real_no <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"La personne a demandé à interrompre l'entretien"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"L'enqueteur/trice a demandé à interrompre l'entretien"</span> , <span class="st">"99"</span> <span class="ot">=</span> <span class="st">"Autre"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>cgi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Normal, pas du tout malade"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"A la limite"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Légérement malade"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Modérément malade"</span> , <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Manifestement malade"</span> , <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Gravement malade"</span> , <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Parmi les patients les plus malades"</span>) </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>m0_real_no_stopEnq <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Caril ne comprend et ne parle pas suffisamment le français"</span> , <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Car il présente un trouble cognitif empêchant une bonne compréhension du questionnaire"</span> , <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Car il présente des troubles psychiatriques empêchant la passation du questionnaire (décompensation aiguë avec indication d’hospitalisation en urgence)"</span> , <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Il ne s'agit finalement pas d'une nouvelle entrée (hors périmètre)"</span> , <span class="st">"99"</span> <span class="ot">=</span> <span class="st">"Autre"</span>) </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>coop <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span><span class="st">"Bon ou très bon"</span> , <span class="st">"2"</span> <span class="ot">=</span><span class="st">"Moyen"</span> , <span class="st">"3"</span> <span class="ot">=</span><span class="st">"Mauvais ou très mauvais"</span>) </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>lang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span><span class="st">"Bonne ou très bonne"</span> , <span class="st">"2"</span> <span class="ot">=</span><span class="st">"Moyenne"</span> , <span class="st">"3"</span> <span class="ot">=</span><span class="st">"Mauvaise ou très mauvaise"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
