@@ -239,8 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#création-dune-base-unique-de-suivi-m0" id="toc-création-dune-base-unique-de-suivi-m0" class="nav-link active" data-scroll-target="#création-dune-base-unique-de-suivi-m0"><span class="header-section-number">0.1</span> Création d’une base unique de suivi M0</a></li>
   <li><a href="#fonction-de-jauge" id="toc-fonction-de-jauge" class="nav-link" data-scroll-target="#fonction-de-jauge"><span class="header-section-number">0.2</span> Fonction de jauge</a></li>
   <li><a href="#fonction-sunburst" id="toc-fonction-sunburst" class="nav-link" data-scroll-target="#fonction-sunburst"><span class="header-section-number">0.3</span> Fonction sunburst</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1</span> </a></li>
-  <li><a href="#fonction-aggregation-graphiques" id="toc-fonction-aggregation-graphiques" class="nav-link" data-scroll-target="#fonction-aggregation-graphiques"><span class="header-section-number">2</span> Fonction aggregation graphiques</a></li>
+  <li><a href="#fonction-courbe-rythme-dinclusion" id="toc-fonction-courbe-rythme-dinclusion" class="nav-link" data-scroll-target="#fonction-courbe-rythme-dinclusion"><span class="header-section-number">0.4</span> Fonction courbe rythme d’inclusion</a></li>
+  <li><a href="#fonction-aggregation-graphiques" id="toc-fonction-aggregation-graphiques" class="nav-link" data-scroll-target="#fonction-aggregation-graphiques"><span class="header-section-number">1</span> Fonction aggregation graphiques</a></li>
   </ul>
 </nav>
     </div>
@@ -392,50 +392,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="section"><span class="header-section-number">1</span> </h2>
-</section>
-<section id="fonction-aggregation-graphiques" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="fonction-aggregation-graphiques"><span class="header-section-number">2</span> Fonction aggregation graphiques</h2>
+<section id="fonction-courbe-rythme-dinclusion" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="fonction-courbe-rythme-dinclusion"><span class="header-section-number">0.4</span> Fonction courbe rythme d’inclusion</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>graph_return <span class="ot">=</span> <span class="cf">function</span>(stat_db,<span class="at">di_f=</span> <span class="st">""</span>){</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(di_f<span class="sc">!=</span><span class="st">""</span>){</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    stat_db <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(di <span class="sc">==</span> di_f)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {stat_db <span class="ot">=</span> stat_db}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stat_db = stat_m0_db</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Données valueboxes</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  nb_entree <span class="ot">=</span> <span class="fu">nrow</span>(stat_db)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  nb_accord <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Accord"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  nb_refus <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Refus"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  nb_imposs <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Impossibilité"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  nb_HD <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Hors délai"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  nb_attente <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(consent)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Jauge inclusion H/F</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  gauge_h <span class="ot">=</span> <span class="fu">gauge_func</span>(stat_db,<span class="dv">800</span>,<span class="dv">1000</span>, <span class="st">"M"</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  gauge_f <span class="ot">=</span> <span class="fu">gauge_func</span>(stat_db,<span class="dv">200</span>,<span class="dv">300</span>, <span class="st">"F"</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sunburst</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(di_f <span class="sc">==</span> <span class="st">"Strasbourg"</span>){</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    sunb_h <span class="ot">=</span> <span class="cn">NULL</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{sunb_h <span class="ot">=</span> <span class="fu">sunburst_func</span>(stat_db,<span class="st">"M"</span>)}</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  sunb_f <span class="ot">=</span> <span class="fu">sunburst_func</span>(stat_db,<span class="st">"F"</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  graph <span class="ot">=</span> <span class="fu">list</span>(</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_entree =</span> nb_entree,</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_accord =</span> nb_accord,</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_refus =</span> nb_refus,</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_imposs =</span> nb_imposs,</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_HD =</span> nb_HD,</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_attente =</span> nb_attente,</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">sunb_h =</span> sunb_h,</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">sunb_f =</span> sunb_f,</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">gauge_h =</span> gauge_h,</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">gauge_f =</span> gauge_f</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(graph)</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>inclusion_curve <span class="ot">=</span> <span class="cf">function</span>(stat_db, sex){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Creating matching datafr</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  start_date <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2024-01-08"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  end_date<span class="ot">=</span> <span class="fu">as.Date</span>(<span class="fu">Sys.Date</span>())</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  date <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> start_date, <span class="at">to =</span> end_date, <span class="at">by =</span> <span class="st">"day"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  inclusion <span class="ot">=</span> <span class="fu">as_tibble</span>(date) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">date =</span> value) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.character</span>(date))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  stat_db <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sexe <span class="sc">==</span> sex)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  stat_db<span class="sc">$</span>date_integr_base <span class="ot">=</span> <span class="fu">as.character</span>(<span class="fu">as.Date</span>(stat_db<span class="sc">$</span>consent_X__CTIME))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  stat_db<span class="sc">$</span>date_integr_ajust <span class="ot">=</span> <span class="fu">as.character</span>(<span class="fu">as.Date</span>(stat_db<span class="sc">$</span>consent_X__CTIME) <span class="sc">-</span> <span class="dv">8</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Adding entrances count</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  entrance_num <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(date_entree) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(date_entree) <span class="sc">%&gt;%</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>( <span class="at">date_entree =</span> <span class="fu">as.character</span>(date_entree),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">nb_entree =</span> <span class="fu">cumsum</span>(count)) <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="sc">-</span>count)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  inclusion <span class="ot">=</span> inclusion <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(entrance_num, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span><span class="ot">=</span><span class="st">"date_entree"</span>))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  vu <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(consent)) <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(date_integr_base) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">nb_vu =</span> <span class="fu">cumsum</span>(count)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>count)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  vu_ajust <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(consent)) <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(date_integr_ajust) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">nb_vu_ajust =</span> <span class="fu">cumsum</span>(count)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>count)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  inclusion <span class="ot">=</span> inclusion <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(vu, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span><span class="ot">=</span><span class="st">"date_integr_base"</span>)) <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(vu_ajust, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date"</span><span class="ot">=</span><span class="st">"date_integr_ajust"</span>))</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  inclusion <span class="ot">=</span> inclusion <span class="sc">%&gt;%</span> </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">nb_vu_ajust =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(nb_vu_ajust), <span class="cn">NA_real_</span>, nb_vu_ajust),</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">nb_vu =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(nb_vu), <span class="cn">NA_real_</span>, nb_vu),</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">nb_entree =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(nb_entree), <span class="cn">NA_real_</span>, nb_entree)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fill</span>(nb_vu,nb_entree,nb_vu_ajust, <span class="at">.direction =</span> <span class="st">"down"</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  start_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2024-01-07"</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  end_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">max</span>(inclusion<span class="sc">$</span>date, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  date_breaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> start_date, <span class="at">to =</span> end_date, <span class="at">by =</span> <span class="st">"7 days"</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  date_liste <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">"2024-01-10"</span>), <span class="at">to =</span> end_date, <span class="at">by =</span> <span class="st">"7 days"</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  new_list <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(date_liste)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  new_list<span class="sc">$</span>ylvl <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  graph <span class="ot">=</span> <span class="fu">ggplot</span>(<span class="at">data =</span> inclusion, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.Date</span>(date))) <span class="sc">+</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> nb_entree, <span class="at">color =</span> <span class="st">"Nombre d'entrées cumulé"</span>,<span class="at">group =</span> <span class="dv">1</span>),<span class="at">lwd =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> nb_vu, <span class="at">color =</span> <span class="st">"Nombre d'enregistrements cumulé"</span>,<span class="at">group =</span> <span class="dv">1</span>),<span class="at">lwd =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> nb_vu_ajust, <span class="at">color =</span> <span class="st">"Nombre d'enregistrements cumulé ajusté (-8j)"</span>,<span class="at">group =</span> <span class="dv">1</span>),<span class="at">lwd =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Effectif"</span>,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Nombre d'entrées cumulé"</span> <span class="ot">=</span> <span class="st">"black"</span>, <span class="st">"Nombre d'enregistrements cumulé"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"Nombre d'enregistrements cumulé ajusté (-8j)"</span> <span class="ot">=</span> <span class="st">"darkgrey"</span>)) <span class="sc">+</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_light</span>()<span class="sc">+</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="cn">NA</span>)<span class="sc">+</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.position =</span> <span class="st">"bottom"</span>)<span class="sc">+</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 day"</span>, <span class="at">date_labels =</span> <span class="st">"%Y-%m-%d"</span>) <span class="sc">+</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.numeric</span>(date_breaks), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> new_list, <span class="fu">aes</span>(<span class="at">y =</span> ylvl, <span class="at">x =</span> date_liste),<span class="at">color=</span><span class="st">"darkgreen"</span>)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(graph)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fonction-aggregation-graphiques" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="fonction-aggregation-graphiques"><span class="header-section-number">1</span> Fonction aggregation graphiques</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>graph_return <span class="ot">=</span> <span class="cf">function</span>(stat_db,<span class="at">di_f=</span> <span class="st">""</span>){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(di_f<span class="sc">!=</span><span class="st">""</span>){</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    stat_db <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(di <span class="sc">==</span> di_f)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {stat_db <span class="ot">=</span> stat_db}</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># stat_db = stat_m0_db</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Données valueboxes</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  nb_entree <span class="ot">=</span> <span class="fu">nrow</span>(stat_db)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  nb_accord <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Accord"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  nb_refus <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Refus"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  nb_imposs <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Impossibilité"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  nb_HD <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(consent <span class="sc">==</span> <span class="st">"Hors délai"</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  nb_attente <span class="ot">=</span> stat_db <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(consent)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Jauge inclusion H/F</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  gauge_h <span class="ot">=</span> <span class="fu">gauge_func</span>(stat_db,<span class="dv">800</span>,<span class="dv">1000</span>, <span class="st">"M"</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  gauge_f <span class="ot">=</span> <span class="fu">gauge_func</span>(stat_db,<span class="dv">200</span>,<span class="dv">300</span>, <span class="st">"F"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sunburst</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(di_f <span class="sc">==</span> <span class="st">"Strasbourg"</span>){</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    sunb_h <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{sunb_h <span class="ot">=</span> <span class="fu">sunburst_func</span>(stat_db,<span class="st">"M"</span>)}</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  sunb_f <span class="ot">=</span> <span class="fu">sunburst_func</span>(stat_db,<span class="st">"F"</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Rythme inclusion</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  rythm_h <span class="ot">=</span> <span class="fu">inclusion_curve</span>(stat_db,<span class="st">"M"</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  rythm_f <span class="ot">=</span> <span class="fu">inclusion_curve</span>(stat_db,<span class="st">"F"</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  graph <span class="ot">=</span> <span class="fu">list</span>(</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_entree =</span> nb_entree,</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_accord =</span> nb_accord,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_refus =</span> nb_refus,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_imposs =</span> nb_imposs,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_HD =</span> nb_HD,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">nb_attente =</span> nb_attente,</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">sunb_h =</span> sunb_h,</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">sunb_f =</span> sunb_f,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">gauge_h =</span> gauge_h,</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">gauge_f =</span> gauge_f,</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">rythm_f=</span> rythm_f,</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">rythm_h =</span> rythm_h</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(graph)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

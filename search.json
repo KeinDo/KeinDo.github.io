@@ -122,18 +122,11 @@
     "text": "On reprend une fusion de l’attendu et du réalisé qu’au augmente au cas par cas des variables necessaires aux tdb de suivi. Cette table est une alternative plus détaillée de la table m0_progress.\n\nstat_m0_db_func = function(all_to_meet_list, labeled_m0){\n  temp = all_to_meet_list %&gt;% left_join(labeled_m0, by = c(\"n_ecrou_initial\" = \"ecrou_init\")) %&gt;% \n    mutate(di = case_when(etablissement == \"CP LILLE ANNOEULLIN\" ~ \"Lille\",\n      etablissement == \"CP LILLE LOOS SEQUEDIN\" ~ \"Lille\",\n      etablissement == \"CP TOULOUSE SEYSSES\" ~ \"Toulouse\",\n      etablissement == \"MA FLEURY MEROGIS\"  ~ \"Paris\",\n      etablissement == \"MA MONTAUBAN\" ~ \"Toulouse\",\n      etablissement == \"MA STRASBOURG\" ~ \"Strasbourg\",\n      etablissement == \"MA VERSAILLES\" ~ \"Paris\",\n      TRUE ~ NA)) %&gt;% \n    select(di, everything())\n    return(temp)\n}"
   },
   {
-    "objectID": "QMD/dashboard_functions.html#section",
-    "href": "QMD/dashboard_functions.html#section",
-    "title": "Dashboard creation",
-    "section": "1 ",
-    "text": "1"
-  },
-  {
     "objectID": "QMD/dashboard_functions.html#fonction-aggregation-graphiques",
     "href": "QMD/dashboard_functions.html#fonction-aggregation-graphiques",
     "title": "Dashboard creation",
-    "section": "2 Fonction aggregation graphiques",
-    "text": "2 Fonction aggregation graphiques\n\ngraph_return = function(stat_db,di_f= \"\"){\n  if(di_f!=\"\"){\n    stat_db = stat_db %&gt;% filter(di == di_f)\n  } else {stat_db = stat_db}\n\n  # stat_db = stat_m0_db\n  # Données valueboxes\n  nb_entree = nrow(stat_db)\n  nb_accord = stat_db %&gt;% filter(consent == \"Accord\") %&gt;% nrow()\n  nb_refus = stat_db %&gt;% filter(consent == \"Refus\") %&gt;% nrow()\n  nb_imposs = stat_db %&gt;% filter(consent == \"Impossibilité\") %&gt;% nrow()\n  nb_HD = stat_db %&gt;% filter(consent == \"Hors délai\") %&gt;% nrow()\n  nb_attente = stat_db %&gt;% filter(is.na(consent)) %&gt;% nrow()\n  \n  # Jauge inclusion H/F\n  gauge_h = gauge_func(stat_db,800,1000, \"M\")\n  gauge_f = gauge_func(stat_db,200,300, \"F\")\n\n  # Sunburst\n  if(di_f == \"Strasbourg\"){\n    sunb_h = NULL\n  } else{sunb_h = sunburst_func(stat_db,\"M\")}\n  sunb_f = sunburst_func(stat_db,\"F\")\n  \n  graph = list(\n    nb_entree = nb_entree,\n    nb_accord = nb_accord,\n    nb_refus = nb_refus,\n    nb_imposs = nb_imposs,\n    nb_HD = nb_HD,\n    nb_attente = nb_attente,\n    sunb_h = sunb_h,\n    sunb_f = sunb_f,\n    gauge_h = gauge_h,\n    gauge_f = gauge_f\n  )\n  return(graph)\n}"
+    "section": "1 Fonction aggregation graphiques",
+    "text": "1 Fonction aggregation graphiques\n\ngraph_return = function(stat_db,di_f= \"\"){\n  if(di_f!=\"\"){\n    stat_db = stat_db %&gt;% filter(di == di_f)\n  } else {stat_db = stat_db}\n\n  # stat_db = stat_m0_db\n  # Données valueboxes\n  nb_entree = nrow(stat_db)\n  nb_accord = stat_db %&gt;% filter(consent == \"Accord\") %&gt;% nrow()\n  nb_refus = stat_db %&gt;% filter(consent == \"Refus\") %&gt;% nrow()\n  nb_imposs = stat_db %&gt;% filter(consent == \"Impossibilité\") %&gt;% nrow()\n  nb_HD = stat_db %&gt;% filter(consent == \"Hors délai\") %&gt;% nrow()\n  nb_attente = stat_db %&gt;% filter(is.na(consent)) %&gt;% nrow()\n  \n  # Jauge inclusion H/F\n  gauge_h = gauge_func(stat_db,800,1000, \"M\")\n  gauge_f = gauge_func(stat_db,200,300, \"F\")\n\n  # Sunburst\n  if(di_f == \"Strasbourg\"){\n    sunb_h = NULL\n  } else{sunb_h = sunburst_func(stat_db,\"M\")}\n  sunb_f = sunburst_func(stat_db,\"F\")\n  \n  #Rythme inclusion\n  rythm_h = inclusion_curve(stat_db,\"M\")\n  rythm_f = inclusion_curve(stat_db,\"F\")\n  \n  graph = list(\n    nb_entree = nb_entree,\n    nb_accord = nb_accord,\n    nb_refus = nb_refus,\n    nb_imposs = nb_imposs,\n    nb_HD = nb_HD,\n    nb_attente = nb_attente,\n    sunb_h = sunb_h,\n    sunb_f = sunb_f,\n    gauge_h = gauge_h,\n    gauge_f = gauge_f,\n    rythm_f= rythm_f,\n    rythm_h = rythm_h\n  )\n  return(graph)\n}"
   },
   {
     "objectID": "QMD/db_preprocessing_files.html",
