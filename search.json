@@ -254,7 +254,11 @@
     "href": "QMD/index.html",
     "title": "EPSYLON dataprocessing routines",
     "section": "",
-    "text": "Description des différentes étapes necessaires au traitement des fichiers de donnés mis à disposition par EX3.\n\nReception des données\n\nLes données d’entrée sont receptionnées sur une base hebdomadaire\nLes données de nomenclature sont receptionnées ponctuellement en fonction des mises à jour récentes.\n\n\nLa reception est faite via un lien sécurisé ATLAS, transmis par EX3 au chargé de traitement EPSYLON. Les données sont datées et stockées dans le repertoire dédié.\n\nTraitement\n\n\nIdentification du dernier fichier disponible\nImport des données\nImport des données n-1\nRetrait des doublons et sorties précoces\nRetrait des personnes non enquêté sur la semaine considérée (lorsque Fleury ou Seysse)\nAjout des informations supplémentaires suivantes :\n\nDate de sortie prev\nStatut\nLocalisation UGC : traitement hierarchique spécifique de la table à prévoir\n\n\n\nExports\n\n\nMise en place des fichiers individuels etab à transmettre aux personnes référentes"
+    "text": "Description des différentes étapes necessaires au traitement des fichiers de donnés mis à disposition par EX3.\n\nReception des données\n\nLes données d’entrée sont receptionnées sur une base hebdomadaire\nLes données de nomenclature sont receptionnées ponctuellement en fonction des mises à jour récentes.\n\n\nLa reception est faite via un lien sécurisé ATLAS, transmis par EX3 au chargé de traitement EPSYLON. Les données sont datées et stockées dans le repertoire dédié.\n\nTraitement\n\n\nIdentification du dernier fichier disponible\nImport des données\nImport des données n-1\nRetrait des doublons et sorties précoces\nRetrait des personnes non enquêté sur la semaine considérée (lorsque Fleury ou Seysse)\nAjout des informations supplémentaires suivantes :\n\nDate de sortie prev\nStatut\nLocalisation UGC : traitement hierarchique spécifique de la table à prévoir\n\n\n\nExports\n\n\nMise en place des fichiers individuels etab à transmettre aux personnes référentes",
+    "crumbs": [
+      "Intégration données d'enquête",
+      "EPSYLON dataprocessing routines"
+    ]
   },
   {
     "objectID": "QMD/M3_to_M9_meeting_progress.html",
