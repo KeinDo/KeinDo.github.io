@@ -328,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>people_to_meet_m3 <span class="ot">=</span> <span class="cf">function</span>(m0_progress){</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  people_to_meet_m3 <span class="ot">=</span> m0_progress <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(consent <span class="sc">==</span><span class="st">"Le sujet accepte de participer à l'étude"</span> <span class="sc">&amp;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(consent <span class="sc">==</span><span class="st">"Accord"</span> <span class="sc">&amp;</span> </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">is.na</span>(type_mouvement) <span class="sc">&amp;</span> </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>             <span class="sc">!</span>(exclus_enq <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="st">"Oui"</span>,<span class="st">"1"</span>))) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
