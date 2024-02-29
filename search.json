@@ -64,7 +64,10 @@
     "href": "QMD/intro.html",
     "title": "Intro",
     "section": "",
-    "text": "Ce wiki repertorie l’ensemble des scripts dédiés au traitement des données d’entrants/sortants sur les établissements enquêtés.\nVous trouverez les scripts permettant :\n\nLe traitement des entrants des 8 jours précédents. Incluant :\n\nL’identification des doublons du à la superposition de certaines dates\nLa vérification des sorties précoces\nLe repérage de la localisation a partir de l’extrait de nomenclature UGC\nLa génération des fichiers individuels pour transmission à chauqe établissement\n\n\nLes données importées et exportées n’apparaissent pas dans les résultats pour des questions de confidentialité."
+    "text": "Ce wiki repertorie l’ensemble des scripts dédiés au traitement des données d’entrants/sortants sur les établissements enquêtés.\nVous trouverez les scripts permettant :\n\nLe traitement des entrants des 8 jours précédents. Incluant :\n\nL’identification des doublons du à la superposition de certaines dates\nLa vérification des sorties précoces\nLe repérage de la localisation a partir de l’extrait de nomenclature UGC\nLa génération des fichiers individuels pour transmission à chauqe établissement\n\n\nLes données importées et exportées n’apparaissent pas dans les résultats pour des questions de confidentialité.",
+    "crumbs": [
+      "Intro"
+    ]
   },
   {
     "objectID": "QMD/Import M0.html",
@@ -119,21 +122,36 @@
     "href": "QMD/data_consistency.html",
     "title": "Contrôle cohérence",
     "section": "",
-    "text": "# Controle doublons et personnes orphelines\n\nctrl_coherence = function(labeled_m0, all_to_meet_list){ \n  output_path = \"data/output/coordination_tools\"\n  orphelin = labeled_m0 %&gt;% filter(!(ecrou_init %in% all_to_meet_list$n_ecrou_initial))\nprint(paste0(\"Orphelins : \", nrow(orphelin)))\n \n  doublons = as.data.frame(table(labeled_m0$ecrou_init)) %&gt;% filter(Freq &gt; 1)\n  doublons = labeled_m0 %&gt;% filter(ecrou_init %in% doublons$Var1)\n  print(paste0(\"Doublons : \", nrow(doublons)))\n \n  # Export csv des lignes problématiques\n  write.csv2(doublons, paste0(output_path,\"/doublons.csv\"))\n  write.csv2(orphelin, paste0(output_path,\"/orphelin.csv\"))\n   \n}"
+    "text": "# Controle doublons et personnes orphelines\n\nctrl_coherence = function(labeled_m0, all_to_meet_list){ \n  output_path = \"data/output/coordination_tools\"\n  orphelin = labeled_m0 %&gt;% filter(!(ecrou_init %in% all_to_meet_list$n_ecrou_initial))\nprint(paste0(\"Orphelins : \", nrow(orphelin)))\n \n  doublons = as.data.frame(table(labeled_m0$ecrou_init)) %&gt;% filter(Freq &gt; 1)\n  doublons = labeled_m0 %&gt;% filter(ecrou_init %in% doublons$Var1)\n  print(paste0(\"Doublons : \", nrow(doublons)))\n \n  # Export csv des lignes problématiques\n  write.csv2(doublons, paste0(output_path,\"/doublons.csv\"))\n  write.csv2(orphelin, paste0(output_path,\"/orphelin.csv\"))\n   \n}",
+    "crumbs": [
+      "Intégration données d'enquête",
+      "Functions",
+      "Contrôle cohérence"
+    ]
   },
   {
     "objectID": "QMD/dashboard_functions.html",
     "href": "QMD/dashboard_functions.html",
     "title": "Dashboard creation",
     "section": "",
-    "text": "On reprend une fusion de l’attendu et du réalisé qu’au augmente au cas par cas des variables necessaires aux tdb de suivi. Cette table est une alternative plus détaillée de la table m0_progress.\n\nstat_m0_db_func = function(all_to_meet_list, labeled_m0){\n  temp = all_to_meet_list %&gt;% left_join(labeled_m0, by = c(\"n_ecrou_initial\" = \"ecrou_init\")) %&gt;% \n    mutate(di = case_when(etablissement == \"CP LILLE ANNOEULLIN\" ~ \"Lille\",\n      etablissement == \"CP LILLE LOOS SEQUEDIN\" ~ \"Lille\",\n      etablissement == \"CP TOULOUSE SEYSSES\" ~ \"Toulouse\",\n      etablissement == \"MA FLEURY MEROGIS\"  ~ \"Paris\",\n      etablissement == \"MA MONTAUBAN\" ~ \"Toulouse\",\n      etablissement == \"MA STRASBOURG\" ~ \"Strasbourg\",\n      etablissement == \"MA VERSAILLES\" ~ \"Paris\",\n      TRUE ~ NA)) %&gt;% \n    select(di, everything())\n    return(temp)\n}"
+    "text": "On reprend une fusion de l’attendu et du réalisé qu’au augmente au cas par cas des variables necessaires aux tdb de suivi. Cette table est une alternative plus détaillée de la table m0_progress.\n\nstat_m0_db_func = function(all_to_meet_list, labeled_m0){\n  temp = all_to_meet_list %&gt;% left_join(labeled_m0, by = c(\"n_ecrou_initial\" = \"ecrou_init\")) %&gt;% \n    mutate(di = case_when(etablissement == \"CP LILLE ANNOEULLIN\" ~ \"Lille\",\n      etablissement == \"CP LILLE LOOS SEQUEDIN\" ~ \"Lille\",\n      etablissement == \"CP TOULOUSE SEYSSES\" ~ \"Toulouse\",\n      etablissement == \"MA FLEURY MEROGIS\"  ~ \"Paris\",\n      etablissement == \"MA MONTAUBAN\" ~ \"Toulouse\",\n      etablissement == \"MA STRASBOURG\" ~ \"Strasbourg\",\n      etablissement == \"MA VERSAILLES\" ~ \"Paris\",\n      TRUE ~ NA)) %&gt;% \n    select(di, everything())\n    return(temp)\n}",
+    "crumbs": [
+      "Intégration données d'enquête",
+      "Functions",
+      "Dashboard creation"
+    ]
   },
   {
     "objectID": "QMD/dashboard_functions.html#fonction-aggregation-graphiques",
     "href": "QMD/dashboard_functions.html#fonction-aggregation-graphiques",
     "title": "Dashboard creation",
     "section": "1 Fonction aggregation graphiques",
-    "text": "1 Fonction aggregation graphiques\n\ngraph_return = function(stat_db,di_f= \"\"){\n  if(di_f!=\"\"){\n    stat_db = stat_db %&gt;% filter(di == di_f)\n  } else {stat_db = stat_db}\n\n  # stat_db = stat_m0_db\n  # Données valueboxes\n  nb_entree = nrow(stat_db)\n  nb_accord = stat_db %&gt;% filter(consent == \"Accord\") %&gt;% nrow()\n  nb_refus = stat_db %&gt;% filter(consent == \"Refus\") %&gt;% nrow()\n  nb_imposs = stat_db %&gt;% filter(consent == \"Impossibilité\") %&gt;% nrow()\n  nb_HD = stat_db %&gt;% filter(consent == \"Hors délai\") %&gt;% nrow()\n  nb_attente = stat_db %&gt;% filter(is.na(consent)) %&gt;% nrow()\n  \n  # Jauge inclusion H/F\n  gauge_h = gauge_func(stat_db,800,1000, \"M\")\n  gauge_f = gauge_func(stat_db,200,300, \"F\")\n\n  # Sunburst\n  if(di_f == \"Strasbourg\"){\n    sunb_h = NULL\n  } else{sunb_h = sunburst_func(stat_db,\"M\")}\n  sunb_f = sunburst_func(stat_db,\"F\")\n  \n  #Rythme inclusion\n  rythm_h = inclusion_curve(stat_db,\"M\")\n  rythm_f = inclusion_curve(stat_db,\"F\")\n  \n  graph = list(\n    nb_entree = nb_entree,\n    nb_accord = nb_accord,\n    nb_refus = nb_refus,\n    nb_imposs = nb_imposs,\n    nb_HD = nb_HD,\n    nb_attente = nb_attente,\n    sunb_h = sunb_h,\n    sunb_f = sunb_f,\n    gauge_h = gauge_h,\n    gauge_f = gauge_f,\n    rythm_f= rythm_f,\n    rythm_h = rythm_h\n  )\n  return(graph)\n}"
+    "text": "1 Fonction aggregation graphiques\n\ngraph_return = function(stat_db,di_f= \"\"){\n  if(di_f!=\"\"){\n    stat_db = stat_db %&gt;% filter(di == di_f)\n  } else {stat_db = stat_db}\n\n  # stat_db = stat_m0_db\n  # Données valueboxes\n  nb_entree = nrow(stat_db)\n  nb_accord = stat_db %&gt;% filter(consent == \"Accord\") %&gt;% nrow()\n  nb_refus = stat_db %&gt;% filter(consent == \"Refus\") %&gt;% nrow()\n  nb_imposs = stat_db %&gt;% filter(consent == \"Impossibilité\") %&gt;% nrow()\n  nb_HD = stat_db %&gt;% filter(consent == \"Hors délai\") %&gt;% nrow()\n  nb_attente = stat_db %&gt;% filter(is.na(consent)) %&gt;% nrow()\n  \n  # Jauge inclusion H/F\n  gauge_h = gauge_func(stat_db,800,1000, \"M\")\n  gauge_f = gauge_func(stat_db,200,300, \"F\")\n\n  # Sunburst\n  if(di_f == \"Strasbourg\"){\n    sunb_h = NULL\n  } else{sunb_h = sunburst_func(stat_db,\"M\")}\n  sunb_f = sunburst_func(stat_db,\"F\")\n  \n  #Rythme inclusion\n  rythm_h = inclusion_curve(stat_db,\"M\")\n  rythm_f = inclusion_curve(stat_db,\"F\")\n  \n  graph = list(\n    nb_entree = nb_entree,\n    nb_accord = nb_accord,\n    nb_refus = nb_refus,\n    nb_imposs = nb_imposs,\n    nb_HD = nb_HD,\n    nb_attente = nb_attente,\n    sunb_h = sunb_h,\n    sunb_f = sunb_f,\n    gauge_h = gauge_h,\n    gauge_f = gauge_f,\n    rythm_f= rythm_f,\n    rythm_h = rythm_h\n  )\n  return(graph)\n}",
+    "crumbs": [
+      "Intégration données d'enquête",
+      "Functions",
+      "Dashboard creation"
+    ]
   },
   {
     "objectID": "QMD/db_preprocessing_files.html",
@@ -238,6 +256,7 @@
     "section": "",
     "text": "Description des différentes étapes necessaires au traitement des fichiers de donnés mis à disposition par EX3.\n\nReception des données\n\nLes données d’entrée sont receptionnées sur une base hebdomadaire\nLes données de nomenclature sont receptionnées ponctuellement en fonction des mises à jour récentes.\n\n\nLa reception est faite via un lien sécurisé ATLAS, transmis par EX3 au chargé de traitement EPSYLON. Les données sont datées et stockées dans le repertoire dédié.\n\nTraitement\n\n\nIdentification du dernier fichier disponible\nImport des données\nImport des données n-1\nRetrait des doublons et sorties précoces\nRetrait des personnes non enquêté sur la semaine considérée (lorsque Fleury ou Seysse)\nAjout des informations supplémentaires suivantes :\n\nDate de sortie prev\nStatut\nLocalisation UGC : traitement hierarchique spécifique de la table à prévoir\n\n\n\nExports\n\n\nMise en place des fichiers individuels etab à transmettre aux personnes référentes",
     "crumbs": [
+      "Intégration données d'enquête",
       "EPSYLON dataprocessing routines"
     ]
   },
