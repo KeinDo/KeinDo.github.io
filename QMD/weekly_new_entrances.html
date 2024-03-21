@@ -324,15 +324,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  file_sortie <span class="ot">&lt;-</span> file_list<span class="sc">$</span>Name[<span class="fu">grep</span>(<span class="st">"^EPSYLON_V1"</span>, file_list<span class="sc">$</span>Name)]</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  sorties <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="fu">unzip</span>(zip_path, file_sortie), <span class="at">sheet =</span> <span class="st">"Rapport 1"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">ecrou_init =</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">case_when</span>(</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>               libelle_court_etablissement_mouvement <span class="sc">==</span> <span class="st">"MA FLEURY MEROGIS"</span> <span class="sc">~</span> <span class="fu">substr</span>(n_ecrou_initial, <span class="fu">nchar</span>(n_ecrou_initial)<span class="sc">-</span><span class="dv">5</span>, <span class="fu">nchar</span>(n_ecrou_initial))</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>               ,<span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">substr</span>(n_ecrou_initial, <span class="fu">nchar</span>(n_ecrou_initial)<span class="sc">-</span><span class="dv">4</span>, <span class="fu">nchar</span>(n_ecrou_initial)))</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv2</span>(sorties,<span class="st">"data/source/weekly_entrances/process_results/ensemble_sorties.csv"</span>) <span class="co">#Export pour trace</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">file.exists</span>(file_sortie)) {<span class="fu">file.remove</span>(file_sortie)}</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sorties)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">libelle_court_etablissement_mouvement =</span> <span class="fu">ifelse</span>(libelle_court_etablissement_mouvement <span class="sc">==</span> <span class="st">"CP FLEURY MEROGIS"</span>,<span class="st">"MA FLEURY MEROGIS"</span>,libelle_court_etablissement_mouvement)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">ecrou_init =</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">case_when</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>               libelle_court_etablissement_mouvement <span class="sc">==</span> <span class="st">"MA FLEURY MEROGIS"</span> <span class="sc">~</span> <span class="fu">substr</span>(n_ecrou_initial, <span class="fu">nchar</span>(n_ecrou_initial)<span class="sc">-</span><span class="dv">5</span>, <span class="fu">nchar</span>(n_ecrou_initial))</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>               ,<span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">substr</span>(n_ecrou_initial, <span class="fu">nchar</span>(n_ecrou_initial)<span class="sc">-</span><span class="dv">4</span>, <span class="fu">nchar</span>(n_ecrou_initial)))</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv2</span>(sorties,<span class="st">"data/source/weekly_entrances/process_results/ensemble_sorties.csv"</span>) <span class="co">#Export pour trace</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">file.exists</span>(file_sortie)) {<span class="fu">file.remove</span>(file_sortie)}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sorties)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="traitement-des-entrées" class="level2" data-number="3">
@@ -362,11 +363,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rapp1_clean <span class="ot">=</span> <span class="cf">function</span>(rapp1){</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  temp <span class="ot">=</span> rapp1 <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">date_mouvement =</span> <span class="fu">as.Date</span>(<span class="fu">substr</span>(date_et_heure_du_mouvement, <span class="dv">1</span>, <span class="dv">10</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>date_et_heure_du_mouvement)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(temp)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">libelle_court_etablissement_mouvement =</span> <span class="fu">ifelse</span>(libelle_court_etablissement_mouvement <span class="sc">==</span> <span class="st">"CP FLEURY MEROGIS"</span>,<span class="st">"MA FLEURY MEROGIS"</span>,libelle_court_etablissement_mouvement)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">date_mouvement =</span> <span class="fu">as.Date</span>(<span class="fu">substr</span>(date_et_heure_du_mouvement, <span class="dv">1</span>, <span class="dv">10</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>date_et_heure_du_mouvement)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(temp)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Le rapport 3 est délivré dans un format csv US au sein d’un fichier excel, qui necessite plus d’ajustement pour reconstruire la table proprement</p>
 <div class="cell">
