@@ -248,8 +248,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#most-recent-db_file-localisation-localize-most-recent-downloaded-db-files" id="toc-most-recent-db_file-localisation-localize-most-recent-downloaded-db-files" class="nav-link active" data-scroll-target="#most-recent-db_file-localisation-localize-most-recent-downloaded-db-files"><span class="header-section-number">1</span> Most recent db_file localisation Localize most recent downloaded DB files</a></li>
   <li><a href="#m0-db-files-aggregation" id="toc-m0-db-files-aggregation" class="nav-link" data-scroll-target="#m0-db-files-aggregation"><span class="header-section-number">2</span> M0 DB files aggregation</a></li>
-  <li><a href="#labeling-database" id="toc-labeling-database" class="nav-link" data-scroll-target="#labeling-database"><span class="header-section-number">3</span> Labeling database</a></li>
-  <li><a href="#export-exploitable-database" id="toc-export-exploitable-database" class="nav-link" data-scroll-target="#export-exploitable-database"><span class="header-section-number">4</span> Export exploitable database</a></li>
+  <li><a href="#m3-db-files-aggregation" id="toc-m3-db-files-aggregation" class="nav-link" data-scroll-target="#m3-db-files-aggregation"><span class="header-section-number">3</span> M3 DB files aggregation</a></li>
+  <li><a href="#labeling-database" id="toc-labeling-database" class="nav-link" data-scroll-target="#labeling-database"><span class="header-section-number">4</span> Labeling database</a></li>
+  <li><a href="#export-exploitable-database" id="toc-export-exploitable-database" class="nav-link" data-scroll-target="#export-exploitable-database"><span class="header-section-number">5</span> Export exploitable database</a></li>
   </ul>
 </nav>
     </div>
@@ -357,46 +358,105 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="labeling-database" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="labeling-database"><span class="header-section-number">3</span> Labeling database</h2>
+<section id="m3-db-files-aggregation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="m3-db-files-aggregation"><span class="header-section-number">3</span> M3 DB files aggregation</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>labeling_db <span class="ot">=</span> <span class="cf">function</span>(database){</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"QMDtoR/labels/epsylon_labels.R"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  labeled_table <span class="ot">&lt;-</span> database</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"test"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Liste des noms des colonnes à traiter</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  col_names <span class="ot">=</span> <span class="fu">colnames</span>(labeled_table)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (col_name <span class="cf">in</span> col_names) {</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">exists</span>(col_name)) {</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">typeof</span>(<span class="fu">get</span>(col_name, <span class="at">mode =</span> <span class="st">"any"</span>)) <span class="sc">!=</span> <span class="st">"closure"</span>){</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Remplacement des valeurs selon le dictionnaire correspondant</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      labeled_table[[col_name]] <span class="ot">&lt;-</span> <span class="fu">get</span>(col_name)[<span class="fu">as.character</span>(labeled_table[[col_name]])]</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      }}</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Remplacement si variable listées comme dichotomique</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span>(col_name <span class="sc">%in%</span> list_var_dicho){</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      labeled_table[[col_name]] <span class="ot">=</span> dicho_answ[<span class="fu">as.character</span>(labeled_table[[col_name]])]</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(labeled_table)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>m3_db_aggreg <span class="ot">=</span> <span class="cf">function</span>(db_list){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  i<span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  concatenated_table_m3 <span class="ot">=</span> <span class="fu">data.frame</span>()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (db <span class="cf">in</span> db_list) {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Connect to the SQLite DB</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), db)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"DB en cours de traitement : "</span>, db))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    tables <span class="ot">&lt;-</span> <span class="fu">dbListTables</span>(con)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">length</span>(tables) <span class="sc">&lt;</span> <span class="dv">2</span>){<span class="cf">next</span>}</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    center_fusion <span class="ot">=</span> <span class="fu">data.frame</span>()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    tables_order <span class="ot">=</span> <span class="fu">list</span>(<span class="st">"consent"</span> ,<span class="st">"pss"</span>,<span class="st">"intro_mini_m0"</span> ,<span class="st">"modulea"</span> ,<span class="st">"moduleb"</span>,<span class="st">"modulec"</span> ,<span class="st">"moduled"</span> ,<span class="st">"modulef"</span> ,<span class="st">"moduleg"</span> ,<span class="st">"moduleh"</span> ,<span class="st">"modulej"</span> ,<span class="st">"modulek"</span> ,<span class="st">"modulen"</span> ,<span class="st">"conso_besoin_m3"</span>, <span class="st">"isi"</span> ,<span class="st">"clot"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (table <span class="cf">in</span> tables_order) {</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (table <span class="sc">==</span> <span class="st">"_goupile"</span> <span class="sc">||</span> <span class="sc">!</span>(table <span class="sc">%in%</span> tables)){<span class="cf">next</span>}</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      data <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, table)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"        Table : "</span>, table))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>      <span class="co">#colnames(data) &lt;- paste(table, colnames(data), sep = "_")</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>      <span class="co">#Ajout d'un prefixe aux colonne de creation/modif pour conserver les info</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="co">#de chaque formulaire + gestion des noms de col numérique retransformé par</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="co">#R par l'ajout d'un caractère X en début. On réaffecte le nom du formulaire</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>      data <span class="ot">=</span> data <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">if_else</span>(<span class="fu">str_starts</span>(., <span class="st">"X__"</span>) <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="st">"X__ROOT"</span>, <span class="fu">str_c</span>(<span class="fu">paste0</span>(table,<span class="st">"_"</span>), .), .), <span class="fu">starts_with</span>(<span class="st">"X__"</span>))</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>      data <span class="ot">=</span> data <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">if_else</span>(<span class="fu">str_starts</span>(., <span class="st">"X"</span>) <span class="sc">&amp;</span> . <span class="sc">!=</span> <span class="st">"X__ROOT"</span>, <span class="fu">str_replace</span>(., <span class="st">"X"</span>, <span class="fu">paste0</span>(table,<span class="st">"_"</span>)), .), <span class="fu">starts_with</span>(<span class="st">"X"</span>))</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Correction à la volée des erreurs de nom de col à la progra initiale</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(table <span class="sc">==</span> <span class="st">"asrs"</span>){data <span class="ot">=</span> data <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">asrs_incarc_impact =</span> pss_incarc_impact)}</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">nrow</span>(center_fusion) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        center_fusion <span class="ot">&lt;-</span> data</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Perform a join operation based on the 'X__ROOT' column</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        center_fusion <span class="ot">&lt;-</span> <span class="fu">full_join</span>(center_fusion, data, <span class="at">by =</span> <span class="st">"X__ROOT"</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    center_fusion <span class="ot">&lt;-</span> center_fusion <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"severity_score_"</span>), as.character))</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">assign</span>(<span class="fu">paste0</span>(<span class="st">"synthese_"</span>,i),center_fusion)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    concatenated_table_m3 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(concatenated_table_m3,center_fusion)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Disconnect from DB</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dbDisconnect</span>(con)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(i)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    i<span class="ot">=</span>i<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(concatenated_table_m3)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="export-exploitable-database" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="export-exploitable-database"><span class="header-section-number">4</span> Export exploitable database</h2>
+<section id="labeling-database" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="labeling-database"><span class="header-section-number">4</span> Labeling database</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>write_m0_db_xlsx <span class="ot">=</span> <span class="cf">function</span>(aggreged_m0, skim_aggreged_m0, labeled_m0, skim_labeled_m0){</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  liste_onglets <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"aggreged_m0"</span> <span class="ot">=</span> aggreged_m0,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"skim_aggreged_m0"</span> <span class="ot">=</span> skim_aggreged_m0,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"labeled_m0"</span> <span class="ot">=</span> labeled_m0,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"skim_labeled_m0"</span> <span class="ot">=</span> skim_labeled_m0</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                      )</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_xlsx</span>(liste_onglets, <span class="fu">paste0</span>(<span class="st">"data/output/final_epsylon_DB/"</span>,<span class="fu">Sys.Date</span>(),<span class="st">"_M0_BDD epsylon.xlsx"</span>))</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>labeling_db <span class="ot">=</span> <span class="cf">function</span>(database){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"QMDtoR/labels/epsylon_labels.R"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  labeled_table <span class="ot">&lt;-</span> database</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"test"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Liste des noms des colonnes à traiter</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  col_names <span class="ot">=</span> <span class="fu">colnames</span>(labeled_table)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (col_name <span class="cf">in</span> col_names) {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">exists</span>(col_name)) {</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">typeof</span>(<span class="fu">get</span>(col_name, <span class="at">mode =</span> <span class="st">"any"</span>)) <span class="sc">!=</span> <span class="st">"closure"</span>){</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Remplacement des valeurs selon le dictionnaire correspondant</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      labeled_table[[col_name]] <span class="ot">&lt;-</span> <span class="fu">get</span>(col_name)[<span class="fu">as.character</span>(labeled_table[[col_name]])]</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      }}</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Remplacement si variable listées comme dichotomique</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span>(col_name <span class="sc">%in%</span> list_var_dicho){</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      labeled_table[[col_name]] <span class="ot">=</span> dicho_answ[<span class="fu">as.character</span>(labeled_table[[col_name]])]</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(labeled_table)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="export-exploitable-database" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="export-exploitable-database"><span class="header-section-number">5</span> Export exploitable database</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>write_db_xlsx <span class="ot">=</span> <span class="cf">function</span>(wave, aggreged, skim_aggreged, labeled, skim_labeled_m0){</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  liste_onglets <span class="ot">&lt;-</span> <span class="fu">list</span>(aggreged, skim_aggreged, labeled, skim_labeled_m0)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(liste_onglets) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"aggreged_"</span>, wave),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">paste0</span>(<span class="st">"skim_aggreged_"</span>, wave),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">paste0</span>(<span class="st">"labeled_"</span>, wave),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">paste0</span>(<span class="st">"skim_labeled_"</span>, wave))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_xlsx</span>(liste_onglets, <span class="fu">paste0</span>(<span class="st">"data/output/final_epsylon_DB/"</span>,<span class="fu">Sys.Date</span>(),<span class="st">"_"</span>, wave,<span class="st">"_BDD epsylon.xlsx"</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
