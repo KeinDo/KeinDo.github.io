@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="kd">
 
-<title>Import UGC</title>
+<title>Longitudinal sankey diagram</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,59 +21,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../../">
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Import UGC</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Longitudinal sankey diagram</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -128,8 +95,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../../../../index.html" class="sidebar-logo-link">
-      <img src="../../../../img/Logo_Blanc-01.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../img/Logo_Blanc-01.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -141,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/Epsylon dashboards.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/Epsylon dashboards.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dashboard inclusions M0</span></a>
   </div>
 </li>
@@ -150,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Intro</span></a>
   </div>
 </li>
@@ -165,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EPSYLON dataprocessing routines</span></a>
   </div>
 </li>
@@ -180,37 +147,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/Import M0.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/Import M0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EPSYLON study results DL and processing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/db_preprocessing_files.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/db_preprocessing_files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">db_files_processinf</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/weekly_new_entrances.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/weekly_new_entrances.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">weekly new entrances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/M3_to_M9_meeting_progress.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/M3_to_M9_meeting_progress.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">M0 to M9 meeting progress</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/dashboard_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/dashboard_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dashboard creation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/data_consistency.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/data_consistency.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contrôle cohérence</span></a>
   </div>
 </li>
@@ -227,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../QMD/epsylon_labels.html" class="sidebar-item-text sidebar-link">
+  <a href="../QMD/epsylon_labels.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">epsylon_dictionnaries</span></a>
   </div>
 </li>
@@ -240,35 +207,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#import-fichier-sas" id="toc-import-fichier-sas" class="nav-link active" data-scroll-target="#import-fichier-sas"><span class="header-section-number">1</span> Import fichier sas</a>
-  <ul class="collapse">
-  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="header-section-number">1.1</span> Libraries</a></li>
-  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters"><span class="header-section-number">1.2</span> Parameters</a></li>
-  </ul></li>
-  <li><a href="#traitement-donnée" id="toc-traitement-donnée" class="nav-link" data-scroll-target="#traitement-donnée"><span class="header-section-number">2</span> Traitement donnée</a>
-  <ul class="collapse">
-  <li><a href="#export-format-r" id="toc-export-format-r" class="nav-link" data-scroll-target="#export-format-r"><span class="header-section-number">2.1</span> Export format R</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Import UGC</h1>
+<h1 class="title">Longitudinal sankey diagram</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>kd </p>
+          </div>
+  </div>
     
   
     
@@ -279,126 +238,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Script d’import et de transformation de la table de nomenclature UGC permettant de repérer les localisations des personnes a enquêter au moment de l’extraction.</p>
-<p>Le fichier est en format SAS, il doit être converti, puis transformer pour modifier la structure hierarchique.</p>
-<p>Ce programme n’est à executer que lors de la mise à jour de la table de nomenclature UGC par EX3.</p>
-<p>Le résultat de table est exporté pour réutilisation dans le script “code_entree.qmd”</p>
-<section id="import-fichier-sas" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="import-fichier-sas"><span class="header-section-number">1</span> Import fichier sas</h2>
-<section id="libraries" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">1.1</span> Libraries</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># haven package to deal with sas file</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(haven, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"haven"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="parameters" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="parameters"><span class="header-section-number">1.2</span> Parameters</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To fill param</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">=</span> <span class="st">"p_ugc_epsylon_20240320.xlsx"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>output_filename <span class="ot">=</span> <span class="st">"nomenc_ugc_red_v2.csv"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Auto param</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ugcfilepath <span class="ot">=</span> <span class="st">"data/source/weekly_entrances/nomenc/"</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ugc_nomenc <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="fu">paste0</span>(ugcfilepath,file_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="traitement-donnée" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="traitement-donnée"><span class="header-section-number">2</span> Traitement donnée</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Information EX3 sur les données
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>“Pour récupérer l’information des bâtiments, on se base sur les données des UGC (Unité Géographique Celullaire). Depuis le Requêteur, j’exporte un ID_UGC pour chaque personne dans la semaine en cours. Normalement je fais un tri donc c’est bien le dernier UGC occupé pendant la période choisie.</p>
-<p>La variable ID_UGC correspond à la cellule de l’individu, soit le plus petit niveau possible. Mais a chaque ID_UGC est associé une variable UGCMERE_FK qui indique le code UGC de l’espace géographique du dessus (le couloir, par exemple). Et pour chaque ligne d’UGC, c’est le même principe, le plus haut niveau d’ID_UGC étant celui correspondant à l’établissement.</p>
-<p>Pour savoir dans quel bâtiment se trouve les gens, je dois donc joindre notre exporte avec la table P_UGC, qui contient l’ensemble des UGC, et récupérer les UGCMERE_FK, jusqu’à ce que j’ai le niveau d’information qui me convient.</p>
-<p>Par exemple ici, je l’ai fait 3 fois et j’ai eu l’information du bâtiment pour tout le monde.”</p>
-</div>
-</div>
-<p>On reconstruit donc la table hierarchique à plat mais en partant sur une fonction pour tenir compte du nombre d’emboitement max</p>
-<section id="selection-nettoyage-des-colonnes-et-retypage" class="level4" data-number="2.0.1">
-<h4 data-number="2.0.1" class="anchored" data-anchor-id="selection-nettoyage-des-colonnes-et-retypage"><span class="header-section-number">2.0.1</span> Selection + nettoyage des colonnes et retypage</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Type transformation + var selection</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>p_ugc_small <span class="ot">=</span> ugc_nomenc <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">"ID_UGC"</span>, <span class="st">"LIBELLE"</span>, <span class="st">"UGCMERE_FK"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.character))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="fonction-daggregation-des-hierarchies" class="level4" data-number="2.0.2">
-<h4 data-number="2.0.2" class="anchored" data-anchor-id="fonction-daggregation-des-hierarchies"><span class="header-section-number">2.0.2</span> Fonction d’aggregation des hierarchies</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ugc_aggre <span class="ot">=</span> <span class="cf">function</span>(tab){</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">=</span> <span class="dv">2</span> <span class="co">#col rename iteration num</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  tab_size <span class="ot">=</span> <span class="fu">ncol</span>(tab) <span class="co"># funct param for initial tab size variations</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  p_ugc_aggreg <span class="ot">=</span>  tab <span class="sc">%&gt;%</span> <span class="fu">rename</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_ugc_cell =</span> id_ugc,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">libelle1 =</span> libelle,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_ugc =</span> ugcmere_fk</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(p_ugc_aggreg[, <span class="fu">ncol</span>(p_ugc_aggreg)])) <span class="sc">!=</span> <span class="dv">0</span>) { <span class="co"># While no empty last col on join </span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    new_col <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">"id_ugc"</span>,i)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    p_ugc_aggreg <span class="ot">=</span> p_ugc_aggreg <span class="sc">%&gt;%</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">left_join</span>(tab, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"id_ugc"</span>),<span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">""</span>,i)) </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    p_ugc_aggreg <span class="ot">=</span> p_ugc_aggreg <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="sc">!!</span><span class="at">new_col:=</span> (<span class="fu">ncol</span>(p_ugc_aggreg)<span class="sc">-</span>tab_size<span class="sc">+</span><span class="dv">1</span>), <span class="st">"id_ugc"</span> <span class="ot">=</span> <span class="fu">ncol</span>(p_ugc_aggreg))</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    i <span class="ot">=</span> i<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Nombre maximum de niveaux hierarchiques : "</span>,i<span class="dv">-1</span>))</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p_ugc_aggreg <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">tail</span>(<span class="fu">names</span>(.), tab_size))) <span class="co"># Return and drop last n empty col</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Récupération table aggrégée avec uniquement les labels + dernier filtrage/rename</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p_ugc_aggreg <span class="ot">=</span> <span class="fu">ugc_aggre</span>(p_ugc_small) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id_ugc_cell, <span class="fu">starts_with</span>(<span class="st">"libell"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">str_replace</span>(., <span class="st">"libelle"</span>, <span class="st">"Zone_niveau_"</span>), <span class="fu">starts_with</span>(<span class="st">"libelle"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Attention possible évolution a prévoir">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Attention possible évolution a prévoir
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>S’assurer que les libelles sont suffisants pour les établissements. Cas échéant, prévoir d’ajouter les codes</p>
-</div>
-</div>
-</section>
-<section id="export-format-r" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="export-format-r"><span class="header-section-number">2.1</span> Export format R</h3>
-<p>Conservation table nomenclature finale pour travail sur extractions entrées.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Output check</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p_ugc_aggreg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(p_ugc_aggreg,<span class="fu">paste0</span>(ugcfilepath,output_filename), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="cleaning-environnement" class="level4" data-number="2.1.1">
-<h4 data-number="2.1.1" class="anchored" data-anchor-id="cleaning-environnement"><span class="header-section-number">2.1.1</span> Cleaning environnement</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rm(list=ls())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<iframe src="../img/sankey_longitudinal.html" width="100%" height="100%">
+</iframe>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
