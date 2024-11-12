@@ -354,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="autocalc-param" class="level3" data-number="1.1.2">
 <h3 data-number="1.1.2" class="anchored" data-anchor-id="autocalc-param"><span class="header-section-number">1.1.2</span> Autocalc param</h3>
-<div id="768f8f1a" class="cell" data-execution_count="4">
+<div id="3d54dd96" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.now()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>directory <span class="op">=</span> now.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">_%Hh%Mm%Ss"</span>)<span class="op">+</span><span class="st">'_epsylon_save'</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> os.path.join(dl_folder, directory)</span>
@@ -364,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="download-execution-m0-m3-m9" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="download-execution-m0-m3-m9"><span class="header-section-number">1.2</span> Download execution (M0-M3-M9)</h2>
-<div id="b7ec20f2" class="cell" data-execution_count="5">
+<div id="85b4bfe4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Login/out session for each loop occurence isn't the most efficient, but no other choice to change download directory without going on non supported experimental options.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The scrapping has to be replaced when goupile will include an API</span></span>
@@ -378,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Launch chrome + options</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  options <span class="op">=</span> webdriver.ChromeOptions()</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  options.add_argument(<span class="st">"--headless=new"</span>) <span class="co"># Trigger/disable visual navigator</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># options.add_argument("--headless=new") # Trigger/disable visual navigator</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  prefs <span class="op">=</span> {<span class="st">"download.default_directory"</span>: os.path.abspath(path_temp), <span class="st">"download.directory_upgrade"</span>: <span class="va">True</span>}</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(os.path.abspath(path_temp))</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  options.add_experimental_option(<span class="st">"prefs"</span>, prefs)</span>
@@ -389,11 +389,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  driver.get(login_url<span class="op">+</span><span class="st">'epsylon'</span>)</span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Username and password clean then fill</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  username_field <span class="op">=</span> driver.find_element(By.ID, <span class="st">'fm_var_0_username'</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  username_field <span class="op">=</span> driver.find_element(By.ID, <span class="st">'fm_var_0'</span>)</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  username_field.clear()</span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  username_field.send_keys(username)</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  password_field <span class="op">=</span> driver.find_element(By.ID, <span class="st">'fm_var_0_password'</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  password_field <span class="op">=</span> driver.find_element(By.ID, <span class="st">'fm_var_1'</span>)</span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  password_field.clear()</span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  password_field.send_keys(password)</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
@@ -413,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="final-dl-folder-opening" class="level4" data-number="1.2.0.1">
 <h4 data-number="1.2.0.1" class="anchored" data-anchor-id="final-dl-folder-opening"><span class="header-section-number">1.2.0.1</span> Final DL folder opening</h4>
-<div id="ed07cadb" class="cell" data-execution_count="6">
+<div id="f6b16b9d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>os.startfile(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
