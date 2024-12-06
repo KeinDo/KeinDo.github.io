@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Kevin D’Ovidio">
-<meta name="dcterms.date" content="2024-02-13">
-<meta name="keywords" content="Processing, Scrapping, Results, Python, R">
+<meta name="author" content="kd">
 
-<title>EPSYLON study results DL and processing</title>
+<title>database_correction_m0_to_m9</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../QMD/index.html">Intégration données d’enquête</a></li><li class="breadcrumb-item"><a href="../QMD/Import M0.html">Functions</a></li><li class="breadcrumb-item"><a href="../QMD/Import M0.html">EPSYLON study results DL and processing</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">database_correction_m0_to_m9</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,16 +178,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Functions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../QMD/Import M0.html" class="sidebar-item-text sidebar-link active">
+  <a href="../QMD/Import M0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EPSYLON study results DL and processing</span></a>
   </div>
 </li>
@@ -254,172 +252,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">0.1</span> Libraries</a>
-  <ul class="collapse">
-  <li><a href="#python-libs" id="toc-python-libs" class="nav-link" data-scroll-target="#python-libs"><span class="header-section-number">0.1.1</span> Python libs</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">0.1.2</span> </a></li>
-  </ul></li>
-  <li><a href="#download-db-files---py" id="toc-download-db-files---py" class="nav-link" data-scroll-target="#download-db-files---py"><span class="header-section-number">1</span> 1. Download DB files - Py</a>
-  <ul class="collapse">
-  <li><a href="#settings" id="toc-settings" class="nav-link" data-scroll-target="#settings"><span class="header-section-number">1.1</span> Settings</a>
-  <ul class="collapse">
-  <li><a href="#manual-parameters" id="toc-manual-parameters" class="nav-link" data-scroll-target="#manual-parameters"><span class="header-section-number">1.1.1</span> Manual parameters</a></li>
-  <li><a href="#autocalc-param" id="toc-autocalc-param" class="nav-link" data-scroll-target="#autocalc-param"><span class="header-section-number">1.1.2</span> Autocalc param</a></li>
-  </ul></li>
-  <li><a href="#download-execution-m0-m3-m9" id="toc-download-execution-m0-m3-m9" class="nav-link" data-scroll-target="#download-execution-m0-m3-m9"><span class="header-section-number">1.2</span> Download execution (M0-M3-M9)</a></li>
-  </ul></li>
+  <li><a href="#m0-aggreged-correction" id="toc-m0-aggreged-correction" class="nav-link active" data-scroll-target="#m0-aggreged-correction"><span class="header-section-number">1</span> M0 aggreged correction</a></li>
+  <li><a href="#m3-aggreged-correction" id="toc-m3-aggreged-correction" class="nav-link" data-scroll-target="#m3-aggreged-correction"><span class="header-section-number">2</span> M3 aggreged correction</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../QMD/index.html">Intégration données d’enquête</a></li><li class="breadcrumb-item"><a href="../QMD/Import M0.html">Functions</a></li><li class="breadcrumb-item"><a href="../QMD/Import M0.html">EPSYLON study results DL and processing</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">EPSYLON study results DL and processing</h1>
+<h1 class="title">database_correction_m0_to_m9</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Kevin D’Ovidio <a href="mailto:kevin.dovidio@f2rsmpsy.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.f2rsmpsy.fr/">
-            F2RSM Psy
-            </a>
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 13, 2024</p>
-    </div>
+             <p>kd </p>
+          </div>
   </div>
+    
   
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    <p>This program purpose is DLing epsylon study wave M0, M3, and M9 results. DB files are transformed to xlsx database, including raw DB version, labelled DB version, and skim for both version. Based on these DB and entrance list generated via code_entree.qmd script, program also create and export followup lists to investigator destination.</p>
-  </div>
-</div>
 
-<div>
-  <div class="keywords">
-    <div class="block-title">Keywords</div>
-    <p>Processing, Scrapping, Results, Python, R</p>
-  </div>
-</div>
 
 </header>
 
 
-<section id="libraries" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">0.1</span> Libraries</h2>
-<section id="python-libs" class="level3" data-number="0.1.1">
-<h3 data-number="0.1.1" class="anchored" data-anchor-id="python-libs"><span class="header-section-number">0.1.1</span> Python libs</h3>
-<div id="python-libs" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium <span class="im">import</span> webdriver</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.keys <span class="im">import</span> Keys</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> selenium.webdriver.common.by <span class="im">import</span> By</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This script provides function to correct specifics informations for some screening on M0, M3 &amp; M9. In other, inconsistencies or random goupile bugs needed to correct or clean some values. All explainations in codeblocks.</p>
+<p>Corrections are made on aggreged db to centralise modification in on function for each study wave</p>
+<section id="m0-aggreged-correction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> M0 aggreged correction</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>correction_agg_m0 <span class="ot">=</span> <span class="cf">function</span>(agg_0){</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  corr_aggreged_m0 <span class="ot">=</span> agg_0 <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Goupile bug : 2 consent form were duplicated, keeping previous version instead of erasing it. We clean old ones.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span>(clot_X__ULID <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"01J3ZA7AJY4T9VTY9EPKJYVP0Z"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"01J43W4TCZ59M3FQMBHTTVSH93"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stucked form, retyped few month laters, correction on creation date for delay</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">consent_X__CTIME =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">59608</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"2024-07-31T07:09:05.784Z"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> consent_X__CTIME</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(corr_aggreged_m0)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section" class="level3" data-number="0.1.2">
-<h3 data-number="0.1.2" class="anchored" data-anchor-id="section"><span class="header-section-number">0.1.2</span> </h3>
-</section>
-</section>
-<section id="download-db-files---py" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Download DB files - Py</h1>
-<section id="settings" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="settings"><span class="header-section-number">1.1</span> Settings</h2>
-<section id="manual-parameters" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="manual-parameters"><span class="header-section-number">1.1.1</span> Manual parameters</h3>
-</section>
-<section id="autocalc-param" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="autocalc-param"><span class="header-section-number">1.1.2</span> Autocalc param</h3>
-<div id="0f37a26f" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.now()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>directory <span class="op">=</span> now.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">_%Hh%Mm%Ss"</span>)<span class="op">+</span><span class="st">'_epsylon_save'</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> os.path.join(dl_folder, directory)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>os.mkdir(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="download-execution-m0-m3-m9" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="download-execution-m0-m3-m9"><span class="header-section-number">1.2</span> Download execution (M0-M3-M9)</h2>
-<div id="beec82ef" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Login/out session for each loop occurence isn't the most efficient, but no other choice to change download directory without going on non supported experimental options.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The scrapping has to be replaced when goupile will include an API</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> site <span class="kw">in</span> site_list:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  path_temp <span class="op">=</span> os.path.join(path, site)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  os.mkdir(path_temp)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  path_temp <span class="op">=</span> os.path.join(path_temp, <span class="st">"DB"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  os.mkdir(path_temp)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Download "</span> <span class="op">+</span> site <span class="op">+</span><span class="st">" : "</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Launch chrome + options</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  options <span class="op">=</span> webdriver.ChromeOptions()</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  options.add_argument(<span class="st">"--headless=new"</span>) <span class="co"># Trigger/disable visual navigator</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  prefs <span class="op">=</span> {<span class="st">"download.default_directory"</span>: os.path.abspath(path_temp), <span class="st">"download.directory_upgrade"</span>: <span class="va">True</span>}</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(os.path.abspath(path_temp))</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  options.add_experimental_option(<span class="st">"prefs"</span>, prefs)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  driver <span class="op">=</span> webdriver.Chrome(options<span class="op">=</span>options)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  driver.implicitly_wait(<span class="dv">3</span>) <span class="co"># seconds - absolutly needed for login and DL</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Go to goupile login page</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  driver.get(login_url<span class="op">+</span><span class="st">'epsylon'</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Username and password clean then fill</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  username_field <span class="op">=</span> driver.find_element(By.ID, <span class="st">'fm_var_0'</span>)</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  username_field.clear()</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  username_field.send_keys(username)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  password_field <span class="op">=</span> driver.find_element(By.ID, <span class="st">'fm_var_1'</span>)</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  password_field.clear()</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  password_field.send_keys(password)</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  password_field.send_keys(Keys.RETURN) <span class="co"># Cred. submission</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># DL all listed study centers</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> center <span class="kw">in</span> center_list:</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    time.sleep(dl_time) <span class="co"># Timer to let download time</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    center_url <span class="op">=</span> login_url<span class="op">+</span>site<span class="op">+</span><span class="st">'/'</span><span class="op">+</span>center<span class="op">+</span><span class="st">'/main/consent'</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    dl_url <span class="op">=</span> login_url<span class="op">+</span>site<span class="op">+</span><span class="st">'/'</span><span class="op">+</span>center<span class="op">+</span><span class="st">'/api/records/export'</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Loading || "</span><span class="op">+</span>center<span class="op">+</span><span class="st">" : "</span><span class="op">+</span>dl_url)</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    driver.get(dl_url)</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Done || "</span><span class="op">+</span>center<span class="op">+</span><span class="st">" : "</span><span class="op">+</span>dl_url)</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  time.sleep(dl_time) <span class="co"># DL time needed for last loop before closing connection</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  driver.quit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="final-dl-folder-opening" class="level4" data-number="1.2.0.1">
-<h4 data-number="1.2.0.1" class="anchored" data-anchor-id="final-dl-folder-opening"><span class="header-section-number">1.2.0.1</span> Final DL folder opening</h4>
-<div id="62071035" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>os.startfile(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="m3-aggreged-correction" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> M3 aggreged correction</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># During collect, goupile's bug made some screening to stay stucked on devices with no server synchronization.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In order to keep these records we had to retype them manually few weeks later. The script mainly correct the creation form day by reaffecting the real creation day instead of rewriting day. Necessary when delay between meets will be calculated.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>correction_agg_m3 <span class="ot">=</span> <span class="cf">function</span>(agg_3){</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  corr_aggreged_m3 <span class="ot">=</span> agg_3 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stucked form, retyped few month laters, correction on creation date for delay</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">consent_X__CTIME =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">58766</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"2024-07-31T07:09:05.784Z"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">58880</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"2024-07-31T07:09:05.784Z"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">19864</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"2024-08-01T07:09:05.784Z"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">19883</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"2024-08-01T07:09:05.784Z"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">19895</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"2024-08-01T07:09:05.784Z"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">19896</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"2024-08-01T07:09:05.784Z"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      ecrou_init <span class="sc">==</span> <span class="dv">19900</span> <span class="sc">&amp;</span> etab <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"2024-08-01T07:09:05.784Z"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> consent_X__CTIME</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(corr_aggreged_m3)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
